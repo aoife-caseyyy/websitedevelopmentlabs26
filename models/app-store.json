@@ -1,0 +1,17 @@
+{
+  "info": {
+    "appTitle": "Playlist Maker",
+    "version": 0.2,
+    "creators": [
+      {
+        "name": "Aoife Casey",
+        "role": "Web Developer"
+      },
+      {
+        "name": "Eddie Nozrachov",
+        "role": "Web Developer"
+      }
+    ],
+    "location": "Waterford"
+  } 
+}
