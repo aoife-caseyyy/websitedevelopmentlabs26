@@ -1,11 +1,16 @@
-import logger from "../utils/logger.js";
-
 'use strict';
 
-const about = {
+import logger from "../utils/logger.js";
+
+const dashboard = {
   createView(request, response) {
     logger.info("About page loading!");
-    response.send('About the Playlist app');   
+    
+    const viewData = {
+      title: "About the Playlist App"
+    };
+    
+    response.render('about', viewData);
   },
 };
 
