@@ -2,7 +2,7 @@
 
 import logger from "../utils/logger.js";
 
-const dashboard = {
+const about = {
   createView(request, response) {
     logger.info("About page loading!");
     
