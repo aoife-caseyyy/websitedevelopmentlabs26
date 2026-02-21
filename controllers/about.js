@@ -1,7 +1,7 @@
 'use strict';
 
-import { profile } from "winston";
 import logger from "../utils/logger.js";
+import employeeProfile from "../models/profiles.js";
 
 const about = {
   createView(request, response) {

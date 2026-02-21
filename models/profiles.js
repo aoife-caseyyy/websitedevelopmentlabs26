@@ -9,9 +9,9 @@ const employeeProfile = {
   collection: 'employee',
 
   getAppInfo() {
-    return this.employeeProfile.findAll(this.profiles);
+    return this.employeeProfile.findAll(this.collection);
   },
 
 };
 
-export default profiles;
+export default employeeProfile;
