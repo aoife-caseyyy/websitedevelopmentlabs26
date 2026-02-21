@@ -3,13 +3,13 @@
 import logger from '../utils/logger.js';
 import JsonStore from './json-store.js';
 
-const profile = {
+const employeeProfile = {
 
-  profile: new JsonStore('./models/profiles.json', { employee: {} }),
+  employeeProfile: new JsonStore('./models/profiles.json', { employee: {} }),
   collection: 'employee',
 
   getAppInfo() {
-    return this.profile.findAll(this.profiles);
+    return this.employeeProfile.findAll(this.profiles);
   },
 
 };
