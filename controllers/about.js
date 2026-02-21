@@ -1,5 +1,6 @@
 'use strict';
 
+import { profile } from "winston";
 import logger from "../utils/logger.js";
 
 const about = {
@@ -7,7 +8,8 @@ const about = {
     logger.info("About page loading!");
     
     const viewData = {
-      title: "About the Playlist App"
+      title: "About the Playlist App",
+      employee: profile.getAppInfo()
     };
     
     response.render('about', viewData);

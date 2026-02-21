@@ -7,8 +7,29 @@
         
       </p>
 
-    <div class="statistic">
-        {{employee}}
-    </div> 
+<div class="ui centered card">
+  <div class="image">
+    <img src="stevie.jpg">
+  </div>
+  <div class="content">
+    <a class="header"> </a>
+    <div class="meta">
+      <span class="date">Joined in  </span>
+      {{employee.joined}}
+    </div>
+    <div class="description">
+        is an 
+        {{employee.job}} 
+        living in 
+        {{employee.city}}.
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+       {{employee.mates}} contacts
+    </a>
+  </div>
+</div>
 
 </section>
