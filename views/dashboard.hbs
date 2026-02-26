@@ -4,12 +4,21 @@
   
     <h2>Playlist App Dashboard</h2>
 
+{{#unless playlists}}
+  <h3 class="ui message">
+     Start adding your playlists!
+  </h3>
+{{/unless}}
+
+
 {{#each playlists}}
   
     <section class="ui left aligned middle aligned scrolling segment">
       <h3 class="ui header">
         {{title}}
       </h3>    
+
+    {{#if songs}}
 
       <table class="ui unstackable striped table">
         <thead>
@@ -34,6 +43,13 @@
   
     </section>
   
+    {{else}}
+        <h3 class="ui message">
+            Empty playlist!
+        </h3>
+
+    {{/if}}
+
 {{/each}}
 
 </section>
