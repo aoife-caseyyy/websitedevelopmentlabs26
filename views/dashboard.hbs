@@ -18,37 +18,36 @@
         {{title}}
       </h3>    
 
-    {{#if songs}}
-
-      <table class="ui unstackable striped table">
+{{#if songs}}
+      
+    <table class="ui unstackable striped table">
         <thead>
-          <tr>
-            <th>Song</th>
-            <th>Artist</th>
-          </tr>
+            <tr>
+              <th>Song</th>
+              <th>Artist</th>
+            </tr>
         </thead>
         <tbody>
-          {{#each songs}}
-            <tr>
-              <td>
-                {{title}}
-              </td>
-              <td>
-                {{artist}}
-              </td>
-            </tr>
-          {{/each}}
+            {{#each songs}}
+              <tr>
+                <td>
+                  {{title}}
+                </td>
+                <td>
+                  {{artist}}
+                </td>
+              </tr>
+            {{/each}}
         </tbody>
-      </table>
-  
-    </section>
-  
-    {{else}}
-        <h3 class="ui message">
-            Empty playlist!
-        </h3>
+    </table>
 
-    {{/if}}
+      {{else}}
+    <h3 class="ui message">
+        Empty playlist!
+    </h3>
+      {{/else}}
+      
+{{/if}}
 
 {{/each}}
 
