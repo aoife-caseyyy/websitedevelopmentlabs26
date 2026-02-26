@@ -13,6 +13,10 @@ const playlistStore = {
     return this.store.findAll(this.collection);
   },
 
+  getPlaylist(id) {
+    return this.store.findOneBy(this.collection, (playlist => playlist.id === id));
+},
+
 };
 
 export default playlistStore;
