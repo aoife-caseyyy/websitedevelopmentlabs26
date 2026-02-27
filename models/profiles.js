@@ -7,6 +7,7 @@ const employeeProfile = {
 
   employeeProfile: new JsonStore('./models/profiles.json', { employees: [] }),
   collection: 'employees',
+  array: 'employees',
 
   getAppInfo() {
     return this.employeeProfile.findAll(this.collection);
