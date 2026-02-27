@@ -1,6 +1,7 @@
 'use strict';
 import logger from "../utils/logger.js";
 import empStore from "../models/emp-store.js";
+import employeeProfile from "../models/profiles.js";
 
 const about = {
   createView(request, response) {
@@ -8,9 +9,9 @@ const about = {
    
       const viewData = {
       title: "Playlist App About",
-      emps: empStore.getEmpInfo()
+      employees: employeeProfile.getAllEmployees()
     };
-    logger.info(viewData.emps)
+    logger.info(viewData.employees)
     response.render('about', viewData); 
   },
 };
