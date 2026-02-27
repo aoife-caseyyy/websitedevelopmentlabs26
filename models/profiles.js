@@ -3,15 +3,15 @@
 import logger from '../utils/logger.js';
 import JsonStore from './json-store.js';
 
-const employeesProfile = {
+const employeeProfile = {
 
-  employeeProfile: new JsonStore('./models/profiles.json', { employees: {} }),
+  employeeProfile: new JsonStore('./models/profiles.json', { employees: [] }),
   collection: 'employees',
 
   getAppInfo() {
-    return this.employeesProfile.findAll(this.collection);
+    return this.employeeProfile.findAll(this.collection);
   },
 
 };
 
-export default employeesProfile;
+export default employeeProfile;
