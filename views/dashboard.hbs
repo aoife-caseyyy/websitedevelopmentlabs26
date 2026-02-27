@@ -23,6 +23,12 @@
         Total Songs: {{songs.length}}
       </p>
 
+      {{else}}
+          <p class="ui message">
+              Empty playlist!
+          </p>
+      {{/else}}
+
       {{/if}}
 
     <a href="/playlist/{{id}}"> View </a>
