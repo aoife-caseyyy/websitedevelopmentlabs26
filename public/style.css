@@ -13,6 +13,11 @@ body {
   background-color: lightgrey;
 }
 
-#wallpaper {
-  padding: 10px;
+.editSubmit {
+  border:none;
+  background: none;
+}
+
+.hide{
+    display: none;
 }

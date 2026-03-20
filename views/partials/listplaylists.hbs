@@ -1,38 +1,56 @@
-<section class="ui left aligned middle aligned segment">
-  
-  <h2>Playlist App Dashboard</h2>
-  
-  {{#unless playlists}}
-    <h3 class="ui message">
-      Start adding your playlists!
-    </h3>
-  {{/unless}}
+{{#if songs}}
 
-  {{#each playlists}}
-    <section class="ui left aligned middle aligned segment">
+  <table class="ui unstackable striped table">
+    <thead>
+      <tr>
+        <th class="four wide">Song</th>
+        <th class="four wide">Artist</th>
+        <th class="two wide"> </th>
+        <th class="two wide"> </th>
+      </tr>
+    </thead>
+  <tbody>
+      {{#each songs}}
+        <form 
+          class = "ui stacked segment form" 
+          action="/playlist/{{../id}}/updatesong/{{id}}" 
+          method="POST"
+        >
+          <tr class="fields">
+            <td class="field">
+              <span class="ui input">
+               <input type="text" name="title" autofocus required 
+                      title = "Please include a valid Title" placeholder="Title" 
+					  value = "{{title}}">
+              </span>
+            </td>
+            <td class="field">
+              <span class="ui input">
+                <input type="text" name="artist" required 
+                       title = "Please include a valid Artist" placeholder="Artist" 
+					   value = "{{artist}}">
+              </span>
+            </td>
+            <td class="center aligned">
+              <button type = "submit" class = "editSubmit">
+                <i class="ui pencil icon "></i>
+              </button>
+            </td>
+            <td class="center aligned">
+              <a href="/playlist/{{../id}}/deletesong/{{id}}">
+                <i class="ui black trash icon"></i>
+              </a>
+            </td>
+          </tr>
+        </form> 
+      {{/each}}
+    </tbody>
+  </table>
 
-      <h3 class="ui header">
-        {{title}}
-      </h3>
-      
-      {{#if songs}}
-        <p>
-          Total songs: {{songs.length}}
-        </p>
-      {{else}}
-        <p>
-          Empty playlist!
-        </p>
-      {{/if}}
-	  <a href="/playlist/{{id}}">
-	     <i class = "ui open folder outline black icon"></i>
-	  </a>
+{{else}}
+  <h3 class="ui message">
+    Empty playlist!
+  </h3>
 
-      <a href="/dashboard/deleteplaylist/{{id}}">
-        <i class="ui trash black icon"></i>
-      </a>
+{{/if}}
 
-    </section>
-  {{/each}}
-
-</section>

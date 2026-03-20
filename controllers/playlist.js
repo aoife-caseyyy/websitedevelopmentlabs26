@@ -29,7 +29,20 @@ const playlist = {
     playlistStore.addSong(playlistId, newSong);
     response.redirect('/playlist/' + playlistId);
   },
-  
+
+  updateSong(request, response) {
+    const playlistId = request.params.id;
+    const songId = request.params.songid;
+    logger.debug("updating song " + songId);
+    const updatedSong = {
+      id: songId,
+      title: request.body.title,
+      artist: request.body.artist
+    };
+    playlistStore.editSong(playlistId, songId, updatedSong);
+    response.redirect('/playlist/' + playlistId);
+  },
+
   deleteSong(request, response) {
     const playlistId = request.params.id;
     const songId = request.params.songid;
