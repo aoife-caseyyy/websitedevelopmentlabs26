@@ -26,11 +26,11 @@ const stats = {
 
     let favTitles = maxRated.map(item => item.title);
 
-    let mapped2 = playlists.map(playlist => playlist.length);
+    let mapped2 = playlists.map(playlist => playlist.songs.length);
 
     let maxLength = Math.max(...mapped2);
 
-    let maxLengthTitle = playlists.filter(playlist => playlist.length === maxLength);
+    let maxLengthTitle = playlists.filter(playlist => playlist.songs.length === maxLength);
 
     let largestPlaylistTitle = maxLengthTitle.map(item => item.title);
 

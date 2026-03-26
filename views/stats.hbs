@@ -46,7 +46,7 @@
     </div>
 
     <div class="ui sixteen wide column">
-      <div class="ui centered two statistics">
+      <div class="ui centered three statistics">
 
         <div class="ui yellow statistic">
           <div class="value">
@@ -80,7 +80,7 @@
           <div class="label">
             Largest playlists: {{largestPlaylist}} songs
             <table>
-              {{#each largestPlaylistTitle}}
+              {{#each displayLargestPlaylistTitle}}
               <tr>
                 <td>{{this}}</td>
               </tr>
