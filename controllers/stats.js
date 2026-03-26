@@ -12,11 +12,15 @@ const stats = {
     
     let numSongs = playlists.reduce((total, playlist) => total + playlist.songs.length, 0);
 	
-    let mappedLargest = playlists.map(playlist => playlist);
+    let mappedLargest = playlists.map(playlist => playlist.length);
 
     let largestPlaylist = Math.max(...mappedLargest) ;
 
     let largestNumSongs = largestPlaylist.length;
+
+    let maxLength = playlists.filter(playlist => playlist.length === largestPlaylist);
+
+    let largestTitles =  maxLength.map(item => item.length)
 
 	  let average =  numPlaylists > 0 ? numSongs/numPlaylists : 0;
 
@@ -40,7 +44,8 @@ const stats = {
         displayLargestNumSongs: largestNumSongs,
         displayAvgRating: avgRating.toFixed(2),
         highest: maxRating,
-        displayFav: favTitles
+        displayFav: favTitles,
+        displayLargestPlaylistTitle: largestTitles
     };
 
     const viewData = {
