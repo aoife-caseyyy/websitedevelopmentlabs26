@@ -4,6 +4,7 @@ import express from 'express';
 const router = express.Router();
 import logger from "./utils/logger.js";
 
+import stats from './controllers/stats.js';
 import start from './controllers/start.js';
 import dashboard from './controllers/dashboard.js';
 import about from './controllers/about.js';
@@ -15,6 +16,7 @@ router.get('/about', about.createView);
 router.get('/playlist/:id', playlist.createView);
 router.get('/playlist/:id/deletesong/:songid', playlist.deleteSong);
 router.get('/dashboard/deleteplaylist/:id', dashboard.deletePlaylist);
+router.get('/stats', stats.createView);
 
 router.get('/error', (request, response) => response.status(404).end('Page not found.'));
 

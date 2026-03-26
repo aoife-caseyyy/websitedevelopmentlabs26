@@ -21,3 +21,8 @@ body {
 .hide{
     display: none;
 }
+
+table {
+  margin:auto
+}
+
