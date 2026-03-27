@@ -6,17 +6,25 @@ import { v4 as uuidv4 } from 'uuid';
 
 const dashboard = {
   createView(request, response) {
-    logger.info("Dashboard page loading!");
-    
-    const viewData = {
-      title: "Playlist App Dashboard",
-      playlists: playlistStore.getAllPlaylists()
-    };
-    
-    logger.debug(viewData.playlists);
-    
-    response.render('dashboard', viewData);
+      logger.info("Dashboard page loading!");
+
+      const searchTerm = request.query.searchTerm || "";
+
+      const playlists = searchTerm
+        ? playlistStore.searchPlaylist(searchTerm)
+        : playlistStore.getAllPlaylists();
+
+      const viewData = {
+        title: "Playlist App Dashboard",
+        playlists:  playlists,
+        search: searchTerm
+      };
+
+      logger.debug(viewData.playlists);
+
+      response.render("dashboard", viewData);
   },
+
 
   addPlaylist(request, response) {
     const timestamp = new Date();
