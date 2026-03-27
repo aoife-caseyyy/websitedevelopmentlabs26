@@ -9,26 +9,19 @@
 
 {{#each employees}}
 
-<div class="ui stackable cards centred">
-  <div class="image">
-    <img src="{{image}}">
-  </div>
-  <div class="content">
-    <a class="header">{{fullname}}</a>
-    <div class="meta">
-      <span class="date">Joined in {{joined}}</span>
+  <div class="ui card">
+    <div class="image">
+      <img src="{{image}}">
     </div>
-    <div class="description">
-      {{name}} is an {{job}} living in {{city}}.
+    <div class="content">
+      <a class="header">{{name}}</a>
+      <div class="description">
+        Age: {{age}} <br>
+        Favourite Medium: {{favMedium}} <br>
+        Current Works Displayed: {{artworks}} 
+      </div>
     </div>
   </div>
-  <div class="extra content">
-    <a>
-      <i class="user icon"></i>
-      {{mates}} contacts
-    </a>
-  </div>
-</div>
 
 {{/each}}
 
