@@ -9,30 +9,34 @@
 
 </section>
 
+{{> menu id="about"}}
+
+<section class="ui left aligned middle aligned segment">
+  <h2>About the Playlist App</h2>
+  <p>Our Team!</p>
+</section>
+
 <section class="ui three stackable cards">
-  
-{{#each employees}}
-
-  <div class="ui card">
-    <div class="image">
-      <img src="{{image}}">
-    </div>
-    <div class="content">
-      <a class="header">{{name}}</a>
-  <div class="meta">
-      <span class="date">Joined in {{joined}} </span>
-    </div>
-    <div class="description">
-        is a {{job}} living in {{city}}.
-    </div>
-  </div>
-  <div class="extra content">
-    <a>
-      <i class="user icon"></i>
-       {{mates}} contacts
-    </a>
-  </div>
-
-{{/each}}
-
+  {{#each employees}}
+    <div class="ui card">
+      <div class="image">
+        <img src="{{image}}">
+      </div>
+      <div class="content">
+        <a class="header">{{name}}</a>
+        <div class="meta">
+          <span class="date">Joined in {{joined}}</span>
+        </div>
+        <div class="description">
+          is a {{job}} living in {{city}}.
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="user icon"></i>
+          {{mates}} contacts
+        </a>
+      </div>
+    </div> <!-- Close the card div properly -->
+  {{/each}}
 </section>
