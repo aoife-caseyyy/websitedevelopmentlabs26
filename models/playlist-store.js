@@ -42,7 +42,7 @@ const playlistStore = {
     return this.store.findBy(
       this.collection,
       (playlist => playlist.title.toLowerCase().includes(search.toLowerCase())))
-  }
+  },
 
   getUserPlaylists(userid) {
     return this.store.findBy(this.collection, (playlist => playlist.userid === userid));
