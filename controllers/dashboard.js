@@ -3,17 +3,22 @@
 import logger from "../utils/logger.js";
 import playlistStore from "../models/playlist-store.js";
 import { v4 as uuidv4 } from 'uuid';
+import accounts from './accounts.js';
+
 
 const dashboard = {
   
   createView(request, response) {
-      logger.info("Dashboard page loading!");
+    logger.info("Dashboard page loading!");
 
+    const loggedInUser = accounts.getCurrentUser(request);
+
+    if (loggedInUser) {
       const searchTerm = request.query.searchTerm || "";
 
       const playlists = searchTerm
-        ? playlistStore.searchPlaylist(searchTerm)
-        : playlistStore.getAllPlaylists();
+        ? playlistStore.searchUserPlaylists(searchTerm, loggedInUser.id)
+        : playlistStore.getUserPlaylists(loggedInUser.id);
 
       const sortField = request.query.sort;
       const order = request.query.order === "desc" ? -1 : 1;
@@ -36,6 +41,7 @@ const dashboard = {
 
       const viewData = {
         title: "Playlist App Dashboard",
+        fullname: loggedInUser.firstName + ' ' + loggedInUser.lastName,
         playlists: sortField ? sorted : playlists,
         search: searchTerm,
         titleSelected: request.query.sort === "title",
@@ -43,24 +49,33 @@ const dashboard = {
         ascSelected: request.query.order === "asc",
         descSelected: request.query.order === "desc",
       };
+      
+      logger.info('about to render' + viewData.playlists);
+      
+      response.render('dashboard', viewData);
+    }
+    else response.redirect('/');
 
-      logger.debug(viewData.playlists);
-
-      response.render("dashboard", viewData);
   },
 
   addPlaylist(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+    logger.debug(loggedInUser.id);
     const timestamp = new Date();
-    
-    const newPlayList = {
+	
+    const newPlaylist = {
+      userid: loggedInUser.id,
       id: uuidv4(),
       title: request.body.title,
-      date: timestamp,
+      rating: parseInt(request.body.rating),
       songs: [],
+      date: timestamp
     };
-    playlistStore.addPlaylist(newPlayList);
+
+    playlistStore.addPlaylist(newPlaylist);
     response.redirect('/dashboard');
   },
+
 
   deletePlaylist(request, response) {
     const playlistId = request.params.id;
