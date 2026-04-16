@@ -4,7 +4,7 @@ import playlistStore from "../models/playlist-store.js";
 import accounts from './accounts.js';
 
 const stats = {
-    createView(request, response) {
+  createView(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
 
     if (loggedInUser) {
@@ -38,7 +38,7 @@ const stats = {
         displayAvgRating: avgRating,
         highest: maxRating,
         displayFav: favTitles,
-        longest: longestSize,
+        longest: largestPlaylist,
         longestTitles: longestPlaylistTitles,
       };
 

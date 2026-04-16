@@ -7,7 +7,6 @@ import accounts from './accounts.js';
 import accounts from './accounts.js';
 
 const dashboard = {
-  
   createView(request, response) {
     logger.info("Dashboard page loading!");
 
