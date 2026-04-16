@@ -1,17 +1,22 @@
 'use strict';
 import logger from "../utils/logger.js";
 import empStore from "../models/emp-store.js";
+import accounts from './accounts.js';
 
 const about = {
   createView(request, response) {
-    logger.info("About page loading!");
-   
-      const viewData = {
-      title: "Playlist App About",
-      employees: empStore.getEmpInfo()
-    };
-    logger.info(viewData.employees)
-    response.render('about', viewData); 
+      const loggedInUser = accounts.getCurrentUser(request);
+      logger.info("About page loading!");
+      
+      if (loggedInUser) {
+        const viewData = {
+          title: 'About the Playlist App',
+          fullname: loggedInUser.firstName + ' ' + loggedInUser.lastName,
+          employees: empStore.getEmployees(),
+        };
+        response.render('about', viewData);
+      }
+      else response.redirect('/');    
   },
 };
 
