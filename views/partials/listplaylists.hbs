@@ -67,20 +67,21 @@
       </p>
 
       <a href="/playlist/{{id}}">
-      {{#if rating}}
-          <p>
-              <span 
-                  class="ui yellow disabled rating" 
-                  data-icon="star" 
-                  data-rating="{{rating}}" 
-                  data-max-rating="5">
-              </span>
+        {{#if rating}}
+            <p>
+                <span 
+                    class="ui yellow disabled rating" 
+                    data-icon="star" 
+                    data-rating="{{rating}}" 
+                    data-max-rating="5">
+                </span>
+              
+                <span style="color: grey; font-size: 90%; font-style: italic">
+                      {{highlightPopular rating}}
+                </span>
+            </p>
+        {{/if}}
 
-              <span style="color: grey; font-size: 90%; font-style: italic">
-                {{highlightPopular rating}}
-              </span>
-          </p>
-      {{/if}}
       <i class="ui open folder outline black icon">
 
       </i></a>
