@@ -43,7 +43,7 @@ const accounts = {
     user.id = uuidv4();
     userStore.addUser(user);
     logger.info('registering' + user.email);
-    response.redirect('/');
+    response.redirect('/start');
   },
   
   //authenticate function to check user credentials and either render the login page again or the start page.
