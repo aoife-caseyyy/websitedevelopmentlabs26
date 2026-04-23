@@ -13,6 +13,7 @@ const stats = {
 
       // app statistics calculations
       const playlists = playlistStore.getAllPlaylists();
+      const users = userStore.getAllUsers();
 
       let numPlaylists = playlists.length;
 
