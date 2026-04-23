@@ -3,7 +3,6 @@
 import logger from '../utils/logger.js';
 import userStore from '../models/user-store.js';
 import { v4 as uuidv4 } from 'uuid';
-import accounts from './accounts.js';
 
 //create an accounts object
 const accounts = {
