@@ -4,7 +4,6 @@ import logger from "../utils/logger.js";
 import playlistStore from "../models/playlist-store.js";
 import { v4 as uuidv4 } from 'uuid';
 import accounts from './accounts.js';
-import accounts from './accounts.js';
 
 const dashboard = {
   createView(request, response) {
