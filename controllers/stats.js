@@ -43,7 +43,7 @@ const stats = {
         highest: maxRating,
         displayFav: favTitles,
         largestPlaylist: largestPlaylist,
-        longestTitle: longestPlaylistTitles,
+        displayLargestPlaylistTitle: longestPlaylistTitles,
         displayNumUsers: numUsers,
       };
 
