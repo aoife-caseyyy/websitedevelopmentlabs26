@@ -6,19 +6,20 @@ import { v4 as uuidv4 } from 'uuid';
 import accounts from './accounts.js';
 
 const playlist = {
-  createView(request, response) {
-      const playlistId = request.params.id;
-      const loggedInUser = accounts.getCurrentUser(request);
-      logger.debug('Playlist id = ' + playlistId);
-      
-      const viewData = {
-        title: 'Playlist',
-        singlePlaylist: playlistStore.getPlaylist(playlistId),
-        fullname: loggedInUser.firstName + ' ' + loggedInUser.lastName,
-      };
+createView(request, response) {
+    const playlistId = request.params.id;
+    const loggedInUser = accounts.getCurrentUser(request);
+    logger.debug('Playlist id = ' + playlistId);
+    
+    const viewData = {
+      title: 'Playlist',
+      singlePlaylist: playlistStore.getPlaylist(playlistId),
+      fullname: loggedInUser.firstName + ' ' + loggedInUser.lastName,
+    };
 
-      response.render('playlist', viewData);
-  },
+    response.render('playlist', viewData);
+},
+
 
   addSong(request, response) {
     const playlistId = request.params.id;

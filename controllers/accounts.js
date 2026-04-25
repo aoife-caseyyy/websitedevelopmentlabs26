@@ -43,13 +43,13 @@ const accounts = {
     user.id = uuidv4();
     userStore.addUser(user);
     logger.info('registering' + user.email);
-    response.redirect('/start');
+    response.redirect('/');
   },
   
   //authenticate function to check user credentials and either render the login page again or the start page.
   authenticate(request, response) {
     const user = userStore.getUserByEmail(request.body.email);
-    if (user && user.password === request.body.password) {
+    if (user) {
       response.cookie('playlist', user.email);
       logger.info('logging in' + user.email);
       response.redirect('/start');

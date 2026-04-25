@@ -52,8 +52,8 @@ const playlistStore = {
     return this.store.findBy(
       this.collection,
       (playlist => playlist.userid === userid && playlist.title.toLowerCase().includes(search.toLowerCase())))
-  }
-  
+  }, 
+
 };
 
 export default playlistStore;
