@@ -39,9 +39,9 @@ const playlistStore = {
   },
 
   searchPlaylist(search) {
-    return this.store.findBy(
-      this.collection,
-      (playlist => playlist.title.toLowerCase().includes(search.toLowerCase())))
+      return this.store.findBy(
+        this.collection,
+        (playlist => playlist.title.toLowerCase().includes(search.toLowerCase())))
   },
 
   getUserPlaylists(userid) {
