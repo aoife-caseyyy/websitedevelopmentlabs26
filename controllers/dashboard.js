@@ -56,23 +56,19 @@ const dashboard = {
 
   },
 
-  addPlaylist(request, response) {
-    const loggedInUser = accounts.getCurrentUser(request);
-    logger.debug(loggedInUser.id);
+addPlaylist(request, response) {
     const timestamp = new Date();
-	
+    
     const newPlaylist = {
-      userid: loggedInUser.id,
       id: uuidv4(),
       title: request.body.title,
-      rating: parseInt(request.body.rating),
-      songs: [],
-      date: timestamp
+	  date: timestamp,
+      songs: []
     };
-
     playlistStore.addPlaylist(newPlaylist);
     response.redirect('/dashboard');
-  },
+},
+
 
   deletePlaylist(request, response) {
     const playlistId = request.params.id;
