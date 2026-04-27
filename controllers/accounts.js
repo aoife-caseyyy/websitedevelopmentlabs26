@@ -41,7 +41,7 @@ const accounts = {
   register(request, response) {
     const user = request.body;
     user.id = uuidv4();
-    userStore.addUser(user);
+    userStore.addUser(user, request.files.picture);
     logger.info('registering' + user.email);
     response.redirect('/start');
   },
