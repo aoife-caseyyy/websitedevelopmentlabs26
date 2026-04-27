@@ -2,6 +2,7 @@
 import logger from "../utils/logger.js";
 import playlistStore from "../models/playlist-store.js";
 import accounts from "./accounts.js";
+import userStore from "../models/user-store.js";
 
 const stats = {
   createView(request, response) {
@@ -31,7 +32,7 @@ const stats = {
       let longestPlaylists = playlists.filter(playlist => playlist.songs.length === longestSize);
       let longestPlaylistTitles = longestPlaylists.map(item => item.title);
       
-      let totalUsers = userStore.length;
+      let totalUsers = userStore.getAllUsers().length;
 
       const statistics = {
         displayNumPlaylists: numPlaylists,
