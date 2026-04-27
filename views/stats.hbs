@@ -46,7 +46,7 @@
     </div>
 
     <div class="ui sixteen wide column">
-      <div class="ui centered two statistics">
+      <div class="ui centered three statistics">
 
         <div class="ui yellow statistic">
           <div class="value">
@@ -73,6 +73,21 @@
           </div>
         </div>
 		
+        <div class="ui yellow statistic">
+          <div class="value">
+            <i class="star icon"></i>
+          </div>
+          <div class="label">
+            Largest playlists: {{longest}} songs
+            <table>
+              {{#each longestTitles}}
+              <tr>
+                <td>{{this}}</td>
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
       </div>
     </div>
     
