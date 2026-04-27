@@ -31,6 +31,8 @@ const stats = {
       let longestPlaylists = playlists.filter(playlist => playlist.songs.length === longestSize);
       let longestPlaylistTitles = longestPlaylists.map(item => item.title);
       
+      let totalUsers = userStore.length;
+
       const statistics = {
         displayNumPlaylists: numPlaylists,
         displayNumSongs: numSongs,
@@ -40,6 +42,7 @@ const stats = {
         displayFav: favTitles,
         longest: longestSize,
         longestTitles: longestPlaylistTitles,
+        users: totalUsers,
       };
 
       const viewData = {
